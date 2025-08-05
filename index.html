@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="page-title">🎮 Game Ideas Generator</title>
+    <meta name="description" content="Generate creative game concepts with AI-powered randomness">
+    <meta name="keywords" content="game ideas, game generator, game development, creativity">
+    <link rel="icon" type="image/x-icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer>
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1 class="title" id="main-title" data-i18n="title">🎮 Game Ideas Generator</h1>
+            <p class="subtitle" id="subtitle" data-i18n="subtitle">Generate creative game concepts with AI-powered
+                randomness</p>
+        </header>
+
+        <!-- Control Panel -->
+        <section class="control-panel">
+            <div class="button-group">
+                <button id="generate-btn" class="btn" data-i18n="generate-btn">
+                    <span id="generate-icon">🔄</span>
+                    <span id="generate-text">Generate New Idea</span>
+                </button>
+
+                <button id="language-btn" class="btn btn-secondary" data-i18n="language-btn">
+                    <span id="language-flag">🇷🇺</span>
+                    <span id="language-text">Русский</span>
+                </button>
+
+                <button id="edit-categories-btn" class="btn btn-orange" data-i18n="edit-categories-btn">
+                    <span>⚙️</span>
+                    <span>Edit Categories</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- Result Area -->
+        <section class="result-area">
+            <h2 class="result-header" id="result-header" data-i18n="result-header">Generated Ideas</h2>
+            <div id="idea-container">
+                <div class="idea-placeholder" id="idea-placeholder">
+                    <p style="text-align: center; color: #7d8590; font-style: italic; padding: 40px;">
+                        Click "Generate New Idea" to create your first game concept!
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Status Bar -->
+        <footer class="status-bar">
+            <span id="status-text" data-i18n="status-ready">Ready to generate ideas</span>
+        </footer>
+    </div>
+
+    <!-- Category Selection Modal -->
+    <div id="category-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="close-category-modal">&times;</span>
+            <h3 class="modal-header">Select Category to Edit</h3>
+            <div class="button-group" style="flex-direction: column; gap: 10px;">
+                <button class="btn" onclick="openCategoryEditor('genres')">📝 Genres</button>
+                <button class="btn" onclick="openCategoryEditor('settings')">🌍 Settings</button>
+                <button class="btn" onclick="openCategoryEditor('mechanics')">⚙️ Mechanics</button>
+                <button class="btn" onclick="openCategoryEditor('themes')">📖 Themes</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Category Editor Modal -->
+    <div id="editor-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="close-editor-modal">&times;</span>
+            <h3 class="modal-header" id="editor-title">Edit Category</h3>
+            <div class="form-group">
+                <label class="form-label" for="new-item-input">Add new item:</label>
+                <div style="display: flex; gap: 10px;">
+                    <input type="text" id="new-item-input" class="form-input" placeholder="Enter new item...">
+                    <button id="add-item-btn" class="btn" style="min-width: auto; padding: 12px 20px;">➕ Add</button>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Current items:</label>
+                <div id="category-list" class="category-list">
+                    <!-- Items will be populated by JavaScript -->
+                </div>
+            </div>
+            <div class="button-group" style="margin-top: 20px;">
+                <button id="save-category-btn" class="btn">💾 Save Changes</button>
+                <button id="cancel-category-btn" class="btn btn-secondary">❌ Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loading-overlay"
+        style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 2000; backdrop-filter: blur(5px);">
+        <div
+            style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: #f0f6fc;">
+            <div style="font-size: 3rem; margin-bottom: 20px; animation: pulse 1.5s infinite;">⏳</div>
+            <div style="font-size: 1.2rem;">Generating amazing game idea...</div>
+        </div>
+    </div>
+
+    <!-- Internationalization Data -->
+    <script>
+        window.i18nData = {
+            en: {
+                'page-title': '🎮 Game Ideas Generator',
+                'title': '🎮 Game Ideas Generator',
+                'subtitle': 'Generate creative game concepts with AI-powered randomness',
+                'generate-btn': 'Generate New Idea',
+                'generate-loading': 'Generating...',
+                'language-btn': 'Русский',
+                'edit-categories-btn': 'Edit Categories',
+                'result-header': 'Generated Ideas',
+                'status-ready': 'Ready to generate ideas',
+                'status-generating': 'Generating new idea...',
+                'status-success': 'Idea generated successfully!',
+                'title-label': 'Title:',
+                'genre-label': 'Genre:',
+                'setting-label': 'Setting:',
+                'mechanic-label': 'Mechanic:',
+                'theme-label': 'Theme:',
+                'description-label': 'Description:',
+                'placeholder-text': 'Click \"Generate New Idea\" to create your first game concept!'
+            },
+            ru: {
+                'page-title': '🎮 Генератор Игровых Идей',
+                'title': '🎮 Генератор Игровых Идей',
+                'subtitle': 'Создавайте креативные игровые концепции с помощью ИИ',
+                'generate-btn': 'Сгенерировать Идею',
+                'generate-loading': 'Генерация...',
+                'language-btn': 'English',
+                'edit-categories-btn': 'Редактировать Категории',
+                'result-header': 'Сгенерированные Идеи',
+                'status-ready': 'Готов к генерации идей',
+                'status-generating': 'Генерация новой идеи...',
+                'status-success': 'Идея сгенерирована успешно!',
+                'title-label': 'Название:',
+                'genre-label': 'Жанр:',
+                'setting-label': 'Сеттинг:',
+                'mechanic-label': 'Механика:',
+                'theme-label': 'Тема:',
+                'description-label': 'Описание:',
+                'placeholder-text': 'Нажмите \"Сгенерировать Идею\" чтобы создать вашу первую игровую концепцию!'
+            }
+        };
+    </script>
+</body>
+
+</html>
