@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     const generateBtn = document.getElementById('generate-btn');
     const ideaContainer = document.getElementById('idea-container');
-    const languageBtn = document.getElementById('language-btn');
     const editCategoriesBtn = document.getElementById('edit-categories-btn');
     const categoryModal = document.getElementById('category-modal');
     const editorModal = document.getElementById('editor-modal');
@@ -19,27 +18,27 @@ document.addEventListener('DOMContentLoaded', function () {
             "Business Sim", "City Builder", "Farming Sim", "Dating Sim",
             "Visual Novel", "Text-Based", "VR", "Mobile", "Casual",
             "Educational", "Art Game", "Experimental", "Metroidvania", "Roguelike", "Roguelite", "Beat 'em up", "Hack and Slash",
-"MOBA", "MMORPG", "Point and Click", "Interactive Fiction", "Idle Game",
-"Incremental", "Bullet Hell", "Shoot 'em up", "Twin-Stick Shooter", "Autobattler",
-"Party Game", "Trivia", "Hidden Object", "Escape Room", "Logic",
-"Tycoon", "God Game", "Life Sim", "Vehicle Sim", "Flight Sim",
-"Space Sim", "Train Sim", "Naval Sim", "Open World", "Cinematic Platformer",
-"Climbing", "Parkour", "Time Management", "Programming Game", "Tower Climb",
-"Asymmetric Multiplayer", "Social Deduction", "Monster Tamer", "Creature Collector", "Battle Royale"
+            "MOBA", "MMORPG", "Point and Click", "Interactive Fiction", "Idle Game",
+            "Incremental", "Bullet Hell", "Shoot 'em up", "Twin-Stick Shooter", "Autobattler",
+            "Party Game", "Trivia", "Hidden Object", "Escape Room", "Logic",
+            "Tycoon", "God Game", "Life Sim", "Vehicle Sim", "Flight Sim",
+            "Space Sim", "Train Sim", "Naval Sim", "Open World", "Cinematic Platformer",
+            "Climbing", "Parkour", "Time Management", "Programming Game", "Tower Climb",
+            "Asymmetric Multiplayer", "Social Deduction", "Monster Tamer", "Creature Collector", "Battle Royale"
         ],
         "settings": [
             "cyberpunk", "steampunk", "medieval", "modern", "futuristic",
             "post-apocalyptic", "fantasy", "sci-fi", "horror", "western",
             "pirate", "space", "underwater", "prehistoric", "mythology",
             "fairy tale", "superhero", "zombie", "vampire", "robot",
-            "alien", "magic", "technology", "nature", "urban", "rural", "ancient egypt", "ancient rome", "ancient greece", "bronze age", "iron age",  
-"victorian", "renaissance", "industrial revolution", "cold war", "world war i",  
-"world war ii", "1930s", "1960s", "1980s", "stone age",  
-"pre-columbian", "mesoamerican", "feudal japan", "samurai era", "wuxia",  
-"arabian nights", "afrofuturism", "dieselpunk", "atompunk", "biopunk",  
-"gaslamp fantasy", "solar punk", "martial arts", "sports-themed", "high seas",  
-"desert", "arctic", "jungle", "swamp", "mountains",  
-"volcanic", "dreamscape", "parallel universe", "virtual reality", "psychedelic"
+            "alien", "magic", "technology", "nature", "urban", "rural", "ancient egypt", "ancient rome", "ancient greece", "bronze age", "iron age",
+            "victorian", "renaissance", "industrial revolution", "cold war", "world war i",
+            "world war ii", "1930s", "1960s", "1980s", "stone age",
+            "pre-columbian", "mesoamerican", "feudal japan", "samurai era", "wuxia",
+            "arabian nights", "afrofuturism", "dieselpunk", "atompunk", "biopunk",
+            "gaslamp fantasy", "solar punk", "martial arts", "sports-themed", "high seas",
+            "desert", "arctic", "jungle", "swamp", "mountains",
+            "volcanic", "dreamscape", "parallel universe", "virtual reality", "psychedelic"
         ],
         "mechanics": [
             "One Life", "No Weapons", "Only One Enemy", "Time Limit",
@@ -48,28 +47,28 @@ document.addEventListener('DOMContentLoaded', function () {
             "Limited Visibility", "No Save", "Permadeath", "Co-op Only",
             "Split Screen", "Asymmetric Multiplayer", "Real-Time Strategy",
             "Turn-Based Combat", "Resource Management", "Base Building",
-            "Crafting System", "Leveling Up", "Skill Trees", "Open World", "Stealth Mechanics", "Parkour Movement", "Wall Running", "Double Jump", "Grappling Hook",  
-"Cover System", "Bullet Time", "Chain Combos", "Parrying", "Dual Wielding",  
-"Weapon Customization", "Armor Upgrades", "Dynamic Weather", "Physics-Based Puzzles", "Destructible Environments",  
-"Environmental Hazards", "Climbing System", "Dialogue Choices", "Multiple Endings", "Branching Story",  
-"Morality System", "Faction System", "Trading/Economy", "Mounts", "Pet Companions",  
-"Squad Commands", "AI Allies", "AI Director", "Random Events", "Minigames",  
-"Cooking System", "Farming", "Fishing", "Hacking", "Lockpicking",  
-"Slow Motion", "Teleportation", "Shape-Shifting", "Mind Control", "Gravity Manipulation"
+            "Crafting System", "Leveling Up", "Skill Trees", "Open World", "Stealth Mechanics", "Parkour Movement", "Wall Running", "Double Jump", "Grappling Hook",
+            "Cover System", "Bullet Time", "Chain Combos", "Parrying", "Dual Wielding",
+            "Weapon Customization", "Armor Upgrades", "Dynamic Weather", "Physics-Based Puzzles", "Destructible Environments",
+            "Environmental Hazards", "Climbing System", "Dialogue Choices", "Multiple Endings", "Branching Story",
+            "Morality System", "Faction System", "Trading/Economy", "Mounts", "Pet Companions",
+            "Squad Commands", "AI Allies", "AI Director", "Random Events", "Minigames",
+            "Cooking System", "Farming", "Fishing", "Hacking", "Lockpicking",
+            "Slow Motion", "Teleportation", "Shape-Shifting", "Mind Control", "Gravity Manipulation"
         ],
         "themes": [
             "revenge", "love", "betrayal", "survival", "mystery",
             "coming of age", "redemption", "sacrifice", "friendship",
             "family", "war", "peace", "discovery", "exploration",
             "conspiracy", "corruption", "justice", "freedom", "oppression",
-            "technology vs nature", "good vs evil", "rich vs poor", "identity", "loss", "grief", "hope", "despair",  
-"loyalty", "honor", "duty", "power", "ambition",  
-"faith", "destiny", "chaos", "order", "isolation",  
-"madness", "fear", "greed", "envy", "forgiveness",  
-"prejudice", "tolerance", "transformation", "rebellion", "tradition vs change",  
-"self-discovery", "heroism", "cowardice", "temptation", "truth vs lies",  
-"memory", "time", "mortality", "immortality", "fate vs free will",  
-"adaptation", "legacy", "courage", "failure", "deception"
+            "technology vs nature", "good vs evil", "rich vs poor", "identity", "loss", "grief", "hope", "despair",
+            "loyalty", "honor", "duty", "power", "ambition",
+            "faith", "destiny", "chaos", "order", "isolation",
+            "madness", "fear", "greed", "envy", "forgiveness",
+            "prejudice", "tolerance", "transformation", "rebellion", "tradition vs change",
+            "self-discovery", "heroism", "cowardice", "temptation", "truth vs lies",
+            "memory", "time", "mortality", "immortality", "fate vs free will",
+            "adaptation", "legacy", "courage", "failure", "deception"
         ]
     };
 
@@ -90,13 +89,6 @@ document.addEventListener('DOMContentLoaded', function () {
             ideaPlaceholder.textContent = window.i18nData[currentLanguage]['placeholder-text'];
         }
     }
-
-    languageBtn.addEventListener('click', function () {
-        currentLanguage = currentLanguage === 'en' ? 'ru' : 'en';
-        document.documentElement.setAttribute('lang', currentLanguage);
-        document.documentElement.setAttribute('data-lang', currentLanguage);
-        updateTextWithLanguage();
-    });
 
     updateTextWithLanguage();
 
@@ -243,7 +235,7 @@ document.addEventListener('DOMContentLoaded', function () {
             newItemInput.value = '';
         }
     });
-    
+
     newItemInput.addEventListener('keypress', function (e) {
         if (e.key === 'Enter') {
             addItemBtn.click();
@@ -257,7 +249,7 @@ document.addEventListener('DOMContentLoaded', function () {
         editorModal.style.display = 'none';
     });
 
-    cancelCategoryBtn.addEventListener('click', function() {
+    cancelCategoryBtn.addEventListener('click', function () {
         editorModal.style.display = 'none';
     });
 
